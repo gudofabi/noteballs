@@ -10,6 +10,11 @@ const router = createRouter({
       component: NotesView
     },
     {
+      path: '/edit/:id',
+      name: 'edit-note',
+      component: () => import('../views/EditNoteView.vue')
+    },
+    {
       path: '/stats',
       name: 'stats',
       // route level code-splitting

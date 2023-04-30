@@ -6,7 +6,7 @@
             <span class="text-gray-500 font-medium text-sm">{{ comp_characterLength }} </span>
         </div>
         <div class="flex">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+          <button @click="$router.push(`/edit/${data.id}`)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path d="M14.293 3.293a1 1 0 00-1.414 0L5 10.586V15h4.414l7.293-7.293a1 1 0 000-1.414l-2-2zM6 13v-3.586L10.586 8H13v2.414l-7 7z" />
             </svg>
