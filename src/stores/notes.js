@@ -16,6 +16,23 @@ export const useStoreNotes = defineStore('storeNotes', {
         }
     },
 
+    getters: {
+        getNoteContent: (state) => {
+            return (id) => {
+                return state.notes.filter(note => { return note.id === id })[0].content
+            }
+        },
+        totalNotesCount: state => state.notes.length,
+        totalCharacterCount: state => {
+            let count = 0
+            state.notes.forEach(note => {
+                count += note.content.length
+            })
+
+            return count
+        }
+    },
+
     actions: {
         addNote(newNoteContent) {
             let currentDate = new Date().getTime(), id = currentDate.toString()
@@ -28,6 +45,11 @@ export const useStoreNotes = defineStore('storeNotes', {
 
         deleteNote(noteId) {
             this.notes = this.notes.filter(note => { return note.id !== noteId })
+        },
+
+        updateNote(id, content) {
+            let index = this.notes.findIndex(note => note.id === id)
+            this.notes[index].content = content
         }
     }
 })
